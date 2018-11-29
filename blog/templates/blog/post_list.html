@@ -7,22 +7,14 @@
         <div>
             <h1><a href="/">Welcome To <br> Django Girls Blog</a></h1>
         </div>
-        {{ posts }}
 
-        <div>
-            <p>published: 28.11.2018, 12:14</p>
-            <h2><a href="">My First Post</a></h2>
-            <p>Shalom to you and yours...Be sure to join us today for Bible Study from 6:00pm to 8:00pm.
-                you will sure not be disappointed as you receive the undiluted word of God,
-                that will change your life for good! God bless and see you there!</p>
-        </div>
-        <div>
-            <p>published: 28.11.2018, 12:14</p>
-            <h2><a href="">My Second Post</a></h2>
-            <p>The Lord is your Shepherd,it's another Friday of great hope and abundant blessings.
-                Why not join in faith with fast and supplication with great expectations that your hope
-                shall come to pass by observing the weekly fast and then we meet in church at 5pm for prayer.
-                May your hope not become hopeless in the mighty name of Jesus.Word Alive Ministry Bible.</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+
     </body>
 </html>
